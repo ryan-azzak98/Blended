@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blended — Curated Amazon Finds</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1E2328;
+    --ink-soft:#4A5158;
+    --paper:#F6F3EE;
+    --paper-raised:#FFFFFF;
+    --rose:#C9776B;
+    --teal:#2C6E6B;
+    --gold:#C9A227;
+    --line:rgba(30,35,40,0.12);
+    --blend: linear-gradient(90deg, var(--rose) 0%, var(--gold) 50%, var(--teal) 100%);
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important; }
+  }
+
+  a{ color:inherit; }
+
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 32px; }
+
+  /* ---------- NAV ---------- */
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:28px; padding-bottom:28px;
+  }
+  .nav-mark{
+    font-family:'Fraunces', serif;
+    font-size:22px; font-weight:600; letter-spacing:-0.01em;
+  }
+  .nav-links{ display:flex; gap:32px; font-size:14px; color:var(--ink-soft); }
+  .nav-links a{ text-decoration:none; }
+  .nav-links a:hover{ color:var(--ink); }
+  .nav-links a:focus-visible, .btn:focus-visible, .cat-card:focus-visible{
+    outline:2px solid var(--teal); outline-offset:3px;
+  }
+
+  /* ---------- HERO ---------- */
+  header.hero{ padding:72px 0 96px; }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--ink-soft); margin-bottom:22px;
+  }
+
+  .wordmark{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(64px, 13vw, 148px);
+    line-height:0.95;
+    letter-spacing:-0.02em;
+    margin:0 0 28px;
+    display:inline-block;
+  }
+  .wordmark span{
+    background:var(--blend);
+    background-size:300% 100%;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    animation: blend-shift 10s ease-in-out infinite;
+  }
+  @keyframes blend-shift{
+    0%{ background-position:0% 50%; }
+    50%{ background-position:100% 50%; }
+    100%{ background-position:0% 50%; }
+  }
+
+  .hero-sub{
+    max-width:520px;
+    font-size:19px;
+    color:var(--ink-soft);
+    margin:0 0 40px;
+  }
+
+  .hero-actions{ display:flex; gap:16px; flex-wrap:wrap; }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'Inter', sans-serif;
+    font-size:14px; font-weight:600;
+    padding:14px 24px; border-radius:2px;
+    text-decoration:none; border:1px solid var(--ink);
+    transition:transform 0.15s ease, background 0.15s ease, color 0.15s ease;
+  }
+  .btn-primary{ background:var(--ink); color:var(--paper); }
+  .btn-primary:hover{ transform:translateY(-2px); }
+  .btn-secondary{ background:transparent; color:var(--ink); }
+  .btn-secondary:hover{ background:var(--ink); color:var(--paper); }
+
+  /* ---------- BLEND BAR (signature divider) ---------- */
+  .blend-bar{
+    height:6px; width:100%;
+    background:var(--blend);
+    background-size:300% 100%;
+    animation: blend-shift 14s ease-in-out infinite;
+  }
+
+  /* ---------- STATEMENT ---------- */
+  section.statement{ padding:88px 0; border-bottom:1px solid var(--line); }
+  .statement p{
+    font-family:'Fraunces', serif;
+    font-size:clamp(24px, 3.4vw, 34px);
+    font-weight:500;
+    line-height:1.35;
+    max-width:820px;
+    letter-spacing:-0.01em;
+  }
+  .statement .accent{ color:var(--teal); }
+
+  /* ---------- PROCESS ---------- */
+  section.process{ padding:88px 0; border-bottom:1px solid var(--line); }
+  .section-head{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:56px; flex-wrap:wrap; gap:12px; }
+  .section-title{ font-family:'Fraunces', serif; font-size:32px; font-weight:600; margin:0; }
+  .section-note{ font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--ink-soft); letter-spacing:0.05em; }
+
+  .process-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:0;
+    border-top:1px solid var(--line);
+  }
+  .process-step{
+    padding:32px 28px 0 0; border-right:1px solid var(--line);
+    position:relative;
+  }
+  .process-step:last-child{ border-right:none; padding-right:0; }
+  .process-num{
+    font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--rose);
+    margin-bottom:14px; display:block;
+  }
+  .process-step h3{
+    font-family:'Fraunces', serif; font-size:21px; font-weight:600; margin:0 0 10px;
+  }
+  .process-step p{ color:var(--ink-soft); font-size:15px; margin:0; padding-right:12px; }
+
+  /* ---------- CATEGORIES ---------- */
+  section.categories{ padding:88px 0; border-bottom:1px solid var(--line); }
+  .cat-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:2px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .cat-card{
+    background:var(--paper-raised);
+    padding:36px 28px;
+    min-height:180px;
+    display:flex; flex-direction:column; justify-content:space-between;
+    text-decoration:none; color:var(--ink);
+    transition:background 0.2s ease;
+  }
+  .cat-card:hover{ background:var(--paper); }
+  .cat-tag{
+    font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.08em;
+    text-transform:uppercase; color:var(--ink-soft);
+  }
+  .cat-card h4{
+    font-family:'Fraunces', serif; font-size:24px; font-weight:600; margin:18px 0 0;
+  }
+  .cat-swatch{
+    width:34px; height:6px; border-radius:2px; margin-top:18px;
+  }
+
+  /* ---------- ABOUT / DISCLOSURE ---------- */
+  section.about{ padding:88px 0; }
+  .about-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:64px; }
+  .about-grid p{ color:var(--ink-soft); font-size:16px; margin:0 0 18px; max-width:480px; }
+  .about-grid h3{ font-family:'Fraunces', serif; font-size:26px; font-weight:600; margin:0 0 20px; }
+
+  .disclosure-box{
+    background:var(--paper-raised);
+    border:1px solid var(--line);
+    padding:28px;
+    font-size:14px;
+    color:var(--ink-soft);
+  }
+  .disclosure-box strong{ color:var(--ink); display:block; margin-bottom:10px; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.06em; text-transform:uppercase; }
+
+  /* ---------- FOOTER ---------- */
+  footer{ padding:48px 0 64px; }
+  .footer-row{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+  .footer-mark{ font-family:'Fraunces', serif; font-weight:600; font-size:18px; }
+  .footer-links{ display:flex; gap:24px; font-size:13px; color:var(--ink-soft); }
+  .footer-links a{ text-decoration:none; }
+  .footer-links a:hover{ color:var(--ink); }
+  .footer-copy{ font-size:13px; color:var(--ink-soft); margin-top:24px; }
+
+  @media (max-width:800px){
+    .process-grid{ grid-template-columns:1fr; }
+    .process-step{ border-right:none; border-bottom:1px solid var(--line); padding:28px 0; }
+    .process-step:last-child{ border-bottom:none; }
+    .cat-grid{ grid-template-columns:1fr 1fr; }
+    .about-grid{ grid-template-columns:1fr; gap:32px; }
+  }
+  @media (max-width:520px){
+    .cat-grid{ grid-template-columns:1fr; }
+    .wrap{ padding:0 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="wrap">
+  <div class="nav-mark">Blended</div>
+  <div class="nav-links">
+    <a href="#categories">Categories</a>
+    <a href="#about">About</a>
+    <a href="https://pinterest.com/" target="_blank" rel="noopener">Pinterest</a>
+  </div>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">Curated shopping — powered by Amazon</div>
+  <h1 class="wordmark"><span>Blended</span></h1>
+  <p class="hero-sub">A mixed edit of the internet's best finds — home, style, and everyday life, brought together in one place so you don't have to scroll for it.</p>
+  <div class="hero-actions">
+    <a class="btn btn-primary" href="#categories">Browse the edit</a>
+    <a class="btn btn-secondary" href="https://pinterest.com/" target="_blank" rel="noopener">Follow on Pinterest</a>
+  </div>
+</header>
+
+<div class="blend-bar"></div>
+
+<section class="statement wrap">
+  <p>We don't sell one thing. We <span class="accent">blend</span> categories — pairing a kitchen tool with a reading nook idea with a skincare staple — because that's actually how people shop. Every pin points to something real, chosen by hand, available on Amazon.</p>
+</section>
+
+<section class="process wrap">
+  <div class="section-head">
+    <h2 class="section-title">How an edit comes together</h2>
+    <span class="section-note">OUR PROCESS</span>
+  </div>
+  <div class="process-grid">
+    <div class="process-step">
+      <span class="process-num">01</span>
+      <h3>Find</h3>
+      <p>We dig through Amazon's catalog for pieces that are genuinely well-made, well-reviewed, and worth the click.</p>
+    </div>
+    <div class="process-step">
+      <span class="process-num">02</span>
+      <h3>Blend</h3>
+      <p>Finds are grouped by mood and moment, not just category — so a single board might mix a lamp, a mug, and a candle.</p>
+    </div>
+    <div class="process-step">
+      <span class="process-num">03</span>
+      <h3>Share</h3>
+      <p>Every pin links straight to the product page, so you can go from inspired to ordered in two clicks.</p>
+    </div>
+  </div>
+</section>
+
+<section class="categories wrap" id="categories">
+  <div class="section-head">
+    <h2 class="section-title">The current mix</h2>
+    <span class="section-note">MIXED LIFESTYLE FINDS</span>
+  </div>
+  <div class="cat-grid">
+    <a class="cat-card" href="#" rel="noopener">
+      <span class="cat-tag">Home</span>
+      <h4>Home &amp; Living</h4>
+      <span class="cat-swatch" style="background:#C9776B;"></span>
+    </a>
+    <a class="cat-card" href="#" rel="noopener">
+      <span class="cat-tag">Kitchen</span>
+      <h4>Kitchen &amp; Dining</h4>
+      <span class="cat-swatch" style="background:#C9A227;"></span>
+    </a>
+    <a class="cat-card" href="#" rel="noopener">
+      <span class="cat-tag">Beauty</span>
+      <h4>Beauty &amp; Self-Care</h4>
+      <span class="cat-swatch" style="background:#2C6E6B;"></span>
+    </a>
+    <a class="cat-card" href="#" rel="noopener">
+      <span class="cat-tag">Style</span>
+      <h4>Fashion &amp; Accessories</h4>
+      <span class="cat-swatch" style="background:#C9776B;"></span>
+    </a>
+    <a class="cat-card" href="#" rel="noopener">
+      <span class="cat-tag">Tech</span>
+      <h4>Everyday Tech</h4>
+      <span class="cat-swatch" style="background:#C9A227;"></span>
+    </a>
+    <a class="cat-card" href="#" rel="noopener">
+      <span class="cat-tag">Wellness</span>
+      <h4>Wellness &amp; Rest</h4>
+      <span class="cat-swatch" style="background:#2C6E6B;"></span>
+    </a>
+  </div>
+</section>
+
+<section class="about wrap" id="about">
+  <div class="about-grid">
+    <div>
+      <h3>About Blended</h3>
+      <p>Blended is a curated shopping page that pulls together standout products from Amazon — chosen for quality, not just trend. We started it because good finds are scattered across a hundred tabs, and someone should do the sorting for you.</p>
+      <p>No sponsored placements, no filler. Just an honest, ever-changing mix of things worth having.</p>
+    </div>
+    <div class="disclosure-box">
+      <strong>Affiliate Disclosure</strong>
+      As an Amazon Associate, Blended earns from qualifying purchases. Some links on this page and our Pinterest boards may be affiliate links, meaning we may receive a small commission at no extra cost to you.
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <div class="blend-bar" style="margin-bottom:40px;"></div>
+  <div class="footer-row">
+    <div class="footer-mark">Blended</div>
+    <div class="footer-links">
+      <a href="https://pinterest.com/" target="_blank" rel="noopener">Pinterest</a>
+      <a href="#about">Disclosure</a>
+      <a href="#categories">Categories</a>
+    </div>
+  </div>
+  <div class="footer-copy">© 2026 Blended. As an Amazon Associate, Blended earns from qualifying purchases.</div>
+</footer>
+
+</body>
+</html>
