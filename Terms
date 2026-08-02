@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Use — Blended</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1E2328; --ink-soft:#4A5158; --paper:#F6F3EE; --paper-raised:#FFFFFF;
+    --rose:#C9776B; --teal:#2C6E6B; --gold:#C9A227; --line:rgba(30,35,40,0.12);
+    --blend: linear-gradient(90deg, var(--rose) 0%, var(--gold) 50%, var(--teal) 100%);
+  }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:var(--paper); color:var(--ink); font-family:'Inter', sans-serif; line-height:1.65; -webkit-font-smoothing:antialiased; }
+  a{ color:var(--teal); }
+  .wrap{ max-width:760px; margin:0 auto; padding:0 32px; }
+  nav.navwrap{ max-width:1080px; margin:0 auto; padding:28px 32px; display:flex; align-items:center; justify-content:space-between; }
+  .nav-mark{ font-family:'Fraunces', serif; font-size:22px; font-weight:600; letter-spacing:-0.01em; text-decoration:none; color:var(--ink); }
+  .nav-links{ display:flex; gap:32px; font-size:14px; color:var(--ink-soft); }
+  .nav-links a{ text-decoration:none; color:var(--ink-soft); }
+  .nav-links a:hover{ color:var(--ink); }
+  .blend-bar{ height:6px; width:100%; background:var(--blend); background-size:300% 100%; }
+  header.page-head{ padding:64px 0 40px; }
+  .eyebrow{ font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:16px; }
+  h1{ font-family:'Fraunces', serif; font-weight:600; font-size:clamp(36px,6vw,52px); margin:0 0 12px; letter-spacing:-0.01em; }
+  .updated{ font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--ink-soft); }
+  main{ padding-bottom:96px; }
+  h2{ font-family:'Fraunces', serif; font-size:22px; font-weight:600; margin:44px 0 14px; }
+  p{ color:var(--ink-soft); font-size:15.5px; margin:0 0 14px; }
+  ul{ color:var(--ink-soft); font-size:15.5px; padding-left:20px; margin:0 0 14px; }
+  li{ margin-bottom:8px; }
+  footer{ max-width:1080px; margin:0 auto; padding:40px 32px 64px; }
+  .footer-links{ display:flex; gap:24px; font-size:13px; color:var(--ink-soft); flex-wrap:wrap; }
+  .footer-links a{ text-decoration:none; color:var(--ink-soft); }
+  .footer-links a:hover{ color:var(--ink); }
+  .footer-copy{ font-size:13px; color:var(--ink-soft); margin-top:20px; }
+  @media (max-width:600px){ nav.navwrap{ flex-direction:column; gap:16px; align-items:flex-start; } }
+</style>
+</head>
+<body>
+
+<nav class="navwrap">
+  <a class="nav-mark" href="index.html">Blended</a>
+  <div class="nav-links">
+    <a href="index.html#categories">Categories</a>
+    <a href="index.html#about">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+<div class="blend-bar"></div>
+
+<header class="page-head wrap">
+  <div class="eyebrow">Legal</div>
+  <h1>Terms of Use</h1>
+  <div class="updated">Last updated: July 2026</div>
+</header>
+
+<main class="wrap">
+  <p>Welcome to Blended (blended.com). By accessing or using this Site, you agree to be bound by these Terms of Use. If you do not agree, please do not use the Site.</p>
+
+  <h2>Nature of the Site</h2>
+  <p>Blended is a curated content site that showcases and links to products listed for sale on Amazon.com. We do not sell, ship, or handle products directly, and we are not a party to any transaction between you and Amazon or any third-party seller.</p>
+
+  <h2>Affiliate Disclosure</h2>
+  <p>Blended is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by linking to Amazon.com and affiliated sites. As an Amazon Associate, Blended earns from qualifying purchases made through links on this Site or our Pinterest boards, at no additional cost to you.</p>
+
+  <h2>No Warranty on Products</h2>
+  <p>Product descriptions, images, pricing, and availability are controlled by Amazon and third-party sellers, and are subject to change without notice. Blended makes no representations or warranties about the accuracy, quality, safety, or suitability of any product featured on the Site. Any purchase you make is subject to Amazon's own terms, policies, and return process.</p>
+
+  <h2>Intellectual Property</h2>
+  <p>The content on this Site — including text, layout, and original graphics — is owned by Blended unless otherwise noted, and may not be copied or reproduced without permission. Product names, logos, and images referenced on the Site remain the property of their respective owners.</p>
+
+  <h2>Third-Party Links</h2>
+  <p>This Site contains links to third-party websites, including Amazon.com. We do not control and are not responsible for the content, policies, or practices of any third-party site.</p>
+
+  <h2>Limitation of Liability</h2>
+  <p>To the fullest extent permitted by law, Blended and its owner(s) shall not be liable for any direct, indirect, incidental, or consequential damages arising from your use of the Site or reliance on any content, recommendation, or link provided here.</p>
+
+  <h2>Changes to These Terms</h2>
+  <p>We may revise these Terms from time to time. Continued use of the Site after changes are posted constitutes your acceptance of the updated Terms.</p>
+
+  <h2>Contact Us</h2>
+  <p>Questions about these Terms can be sent through our <a href="contact.html">Contact page</a>.</p>
+</main>
+
+<div class="blend-bar"></div>
+<footer>
+  <div class="footer-links">
+    <a href="https://pinterest.com/" target="_blank" rel="noopener">Pinterest</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Use</a>
+  </div>
+  <div class="footer-copy">© 2026 Blended. As an Amazon Associate, Blended earns from qualifying purchases.</div>
+</footer>
+
+</body>
+</html>
